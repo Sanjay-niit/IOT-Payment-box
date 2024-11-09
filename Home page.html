@@ -13,14 +13,24 @@
             background-size: cover; /* Make the image cover the entire background */
             background-repeat: no-repeat; /* Prevent the background from repeating */
             background-position: center; /* Center the background image */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            display: flex; /* Flex container for table and iframe */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items */
         }
         table {
             width: 60%;
             border-collapse: collapse;
-            display: inline-block;
-            vertical-align: top;
             background-color: white; /* Set table background to white */
             opacity: 0.9; /* Optional: make the table slightly transparent */
+            border-radius: 15px; /* Curved corners */
+            box-shadow: 0 0 10px black; /* Black shadow for margin effect */
+            margin: 20px; /* Space around the table */
         }
         th, td {
             border: 1px solid #dddddd;
@@ -36,8 +46,16 @@
             cursor: pointer;
         }
         #iframe-container {
-            display: inline-block;
-            margin-left: 20px;
+            width: 60%; /* Match iframe width to table */
+            margin: 20px; /* Space around the iframe */
+            border-radius: 15px; /* Curved corners */
+            box-shadow: 0 0 10px black; /* Black shadow for margin effect */
+        }
+        iframe {
+            width: 100%; /* Full width of the container */
+            height: 260px; /* Fixed height for iframe */
+            border: none; /* Remove border */
+            border-radius: 15px; /* Curved corners */
         }
     </style>
     <script>
@@ -51,21 +69,23 @@
 
 <h1>RFID Information Table</h1>
 
-<table>
-    <tr>
-        <th>RFID tag</th>
-        <th>Name</th>
-        <th>Amount</th>
-    </tr>
-    <tr>
-        <td>93 73 53 F6</td>
-        <td>Sanjay R</td>
-        <td><button onclick="showIframe()">View Amount</button></td>
-    </tr>
-</table>
+<div class="container">
+    <table>
+        <tr>
+            <th>RFID tag</th>
+            <th>Name</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>93 73 53 F6</td>
+            <td>Sanjay R</td>
+            <td><button onclick="showIframe()">View Amount</button></td>
+        </tr>
+    </table>
 
-<div id="iframe-container">
-    <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2699395/widgets/959631"></iframe>
+    <div id="iframe-container">
+        <iframe id="amount-iframe" src="https://thingspeak.com/channels/2699395/widgets/959631"></iframe>
+    </div>
 </div>
 
 <!-- Button to navigate to the edit page -->
