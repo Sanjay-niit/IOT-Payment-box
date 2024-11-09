@@ -4,7 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add padding to body */
+            background-color: #007BFF; /* Set background color to blue */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+        .form-container {
+            display: flex;
+            justify-content: center; /* Center the form */
+            align-items: center; /* Center vertically */
+        }
+        table {
+            border-collapse: collapse;
+            background-color: white; /* Set background color to white */
+            border-radius: 15px; /* Curved corners */
+            box-shadow: 0 0 10px black; /* Shadow effect */
+            padding: 20px; /* Padding inside the table */
+        }
+        th, td {
+            padding: 10px; /* Padding inside table cells */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Full width for input fields */
+            padding: 10px; /* Padding inside input fields */
+            border: 1px solid #cccccc; /* Border for input fields */
+            border-radius: 5px; /* Rounded corners for input fields */
+            margin-bottom: 10px; /* Space below input fields */
+        }
+        input[type="submit"] {
+            background-color: #0056b3; /* Blue background */
+            color: white; /* White text */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding inside submit button */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        input[type="submit"]:hover {
+            background-color: #004494; /* Darker blue on hover */
+        }
+    </style>
     <script>
         function validateLogin(event) {
             event.preventDefault(); // Prevent the form from submitting normally
@@ -26,12 +72,20 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>LOGIN</h2>
-        <form class="login-form" onsubmit="validateLogin(event)">
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-        </form>
+        <table>
+            <tr>
+                <th colspan="2"><h2>LOGIN</h2></th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Username" required></td>
+            </tr>
+            <tr>
+                <td><input type="password" placeholder="Password" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login" onclick="validateLogin(event)"></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
